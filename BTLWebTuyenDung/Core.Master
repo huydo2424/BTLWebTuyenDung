@@ -1,0 +1,189 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" EnableViewState="true" CodeBehind="Core.master.cs" Inherits="BTLWebTuyenDung.Core" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="grid.css">
+    <link rel="stylesheet" type="text/css" href="Responsive.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="lib/jquery/jquery.min.js">
+    
+    <script src="script.js"></script>
+    <script src="lib/jquery/jquery.js"></script>
+    <%--<script src="lib/jquery/jquery350.js"></script>--%>
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" autocomplete="off" runat="server">
+        <header class="header">
+            <div class="header-wrapper">
+                <div class="top-bar">
+                    <div class="wide">
+                        <div class="follow">
+                            <div class="follow-icon phone">
+                                <a href=""><i class="fas fa-phone"><span>Thông tin liên hệ: 0123456789</span></i></a>
+                            </div>
+                            <div class="follow-icon">
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                            <div class="follow-icon">
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                            <div class="follow-icon">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                            </div>
+                            <div class="follow-icon">
+                                <a href=""><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-main">
+                    <div class="main-top wide">
+                        <img width="12%;" class="left-main" alt="" src="img/logo.jpg" />
+                        <div class="search">
+                            <asp:Panel ID="searchPanel" runat="server" DefaultButton="ImageButton1">
+                                <input id="textbox1" runat="server" type="text" class="txtSearch" placeholder="Tìm kiếm ...">
+                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="img/search.png" CssClass="btnSearch fas fa-search" />
+                            </asp:Panel>
+                        </div>
+                        <div class="user-icon">
+                            <div class="header-icon login">
+                                <a href=""><i class="fas fa-user"></i></a>
+                                <div class="dropdown-a" id="login" runat="server">
+                                    <asp:Label Visible="false" ID="txtUser" runat="server" Text="Label"></asp:Label>
+                                    <div id="showlogin" runat="server"></div>
+                                    <asp:Button Visible="false" CssClass="wrap-logout" ID="btnOut" runat="server" Text="Đăng xuất" OnClick="btnOut_Click"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="semi-top">
+                        <div class="menu wide">
+                            <ul class="menu-list">
+                                <li class="menu_item"><a href="Trangchu.aspx">Trang chủ</a></li>
+
+                                <li class=" menu_UngTuyen menu_item ">
+                                    <a href="TinTuyenDung.aspx" >Tin tuyển dụng</a>
+                                    <div class="menu_UngTuyen-source"  id="menu_ut_item" runat="server" visible="false">
+                                        <ul class="menu_UngTuyen-list-link">
+                                            <li class="menu_UngTuyen-list-item">
+                                                <a class="menu_UngTuyen-link" href="ThemTinTuyenDung.aspx">
+                                                    <i class="fa-solid fa-envelopes-bulk"></i>
+                                                    Đăng tin tuyển dụng
+                                                </a>
+                                            </li>
+                                            
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li class=" menu_UngTuyen menu_item ">
+                                    <a >Tin tìm việc</a>
+                                    <div class="menu_UngTuyen-source">
+                                        <ul class="menu_UngTuyen-list-link">
+                                            
+                                            <li class="menu_UngTuyen-list-item">
+                                                <a class="menu_UngTuyen-link" href="Tintimviec.aspx">
+                                                    <i class="fa-solid fa-list"></i>
+                                                    Danh sách ứng viên
+                                                </a>
+                                            </li>
+                                            <li class="menu_UngTuyen-list-item">
+                                                <a class="menu_UngTuyen-link" href="Dangtintimviec.aspx">
+                                                    <i class="fa-solid fa-envelopes-bulk"></i>
+                                                    Đăng tin tìm việc
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="menu_item"><a href="">Hỏi đáp</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            
+        </div>
+
+        <footer>
+            <div class="row-1">
+                <div class="col-1">
+                    <div class="main-title">
+                        <h3>Về chúng tôi</h3>
+                        <div class="divider-small"></div>
+                    </div>
+                    <div class="content-title">
+                        <ul>
+                            <li>Hỏi đáp</li>
+                            <li>Thỏa thuận sử dụng</li>
+                            <li>Quy định bảo mật</li>
+                            <li>Quy chế hoạt động sàn giao dịch việc làm trực tuyến</li>
+                            <li>Ứng dụng di động</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <div class="main-title">
+                        <h3>Dành cho nhà tuyển dụng</h3>
+                        <div class="divider-small"></div>
+                    </div>
+                    <div class="content-title">
+                        <ul>
+                            <li>Đăng tin tuyển dụng</li>
+                            <li>Tìm kiếm hồ sơ</li>
+                            <li>Sản phẩm dịch vụ khác</li>
+                            <li>Liên hệ</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <div class="main-title">
+                        <h3>Việc làm theo khu vực</h3>
+                        <div class="divider-small"></div>
+                    </div>
+                    <div class="content-title">
+                        <ul>
+                            <li>Hà Nội</li>
+                            <li>Hồ Chí Minh</li>
+                            <li>Đà Nẵng</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-end">
+                <div class="end">
+                    <div class="info">
+                        <span>Sản phẩm được thiết kế là Bài tập lớn môn Lập trình Web nâng cao nhóm 03</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </form>
+</body>
+</html>
+

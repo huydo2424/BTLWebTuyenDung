@@ -1,0 +1,175 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="BTLWebTuyenDung.Admin" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Title -->
+    <title>Admin Dashboard</title>
+
+    <!-- Styles -->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/all.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/plugins/icomoon/style.css" rel="stylesheet">
+    <link href="assets/plugins/uniform/css/default.css" rel="stylesheet" />
+    <link href="assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
+    <link href="assets/plugins/nvd3/nv.d3.min.css" rel="stylesheet">
+    <link href="assets/css/ecaps.min.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/admin.css">
+
+    <script src="lib/jquery/jquery.js"></script>
+</head>
+<body>
+    <form runat="server">
+        <div class="page-container" style="min-height: 700px;">
+            <div class="page-sidebar">
+                <a class="logo-box" href="TrangAdmin.aspx">
+                    <span>GROUP 03</span>
+                    <i class="icon-radio_button_unchecked" id="fixed-sidebar-toggle-button"></i>
+                    <i class="icon-close" id="sidebar-toggle-button-close"></i>
+                </a>
+                <div class="page-sidebar-inner">
+                    <div class="page-sidebar-menu">
+                        <ul class="accordion-menu">
+                            <li class="active-page">
+                                <a href="TrangAdmin.aspx">
+                                    <i class="menu-icon icon-home4"></i><span>Trang chính</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Duyetbai.aspx">
+                                    <i class="menu-icon fa-solid fa-feather-pointed"></i><span>Duyệt bài</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="menu-icon fa-solid fa-list-check"></i><span>Trang quản lý</span><i class="accordion-icon fa fa-angle-left"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li><a href="">Quản lý bài đăng</a></li>
+                                    <li><a href="">Quản lý người dùng</a></li>
+
+                                </ul>
+                            </li>
+
+                            <li class="menu-divider"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="page-content">
+                <div class="page-header">
+                    <div class="search-form">
+                        <form action="#" method="GET">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control search-input" placeholder="Type something...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" id="close-search" type="button"><i class="icon-close"></i></button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+
+                            <div class="navbar-header">
+                                <div class="logo-sm">
+                                    <a href="javascript:void(0)" id="sidebar-toggle-button"><i class="fa fa-bars"></i></a>
+                                    <a class="logo-box" href="index.html"><span>ecaps</span></a>
+                                </div>
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <i class="fa fa-angle-down"></i>
+                                </button>
+                            </div>
+
+
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="javascript:void(0)" id="collapsed-sidebar-toggle-button"><i class="fa fa-bars"></i></a></li>
+                                    <li><a href="javascript:void(0)" id="toggle-fullscreen"><i class="fa fa-expand"></i></a></li>
+                                    <li><a href="javascript:void(0)" id="search-button"><i class="fa fa-search"></i></a></li>
+                                </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href=""><i class="fa fa-envelope"></i></a></li>
+                                    <li><a href=""><i class="fa fa-bell"></i></a></li>
+                                    <li class="dropdown user-dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <img src="http://via.placeholder.com/36x36" alt="" class="img-circle"></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="Trangchu.aspx">Về trang chủ</a></li>
+                                            <li><a href="Dangnhap.aspx?act=dx" runat="server" id="btn_logout">Đăng xuất</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>       
+
+        <!-- Javascripts -->
+        <script src="assets/plugins/jquery/jquery-3.1.0.min.js"></script>
+        <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="assets/plugins/uniform/js/jquery.uniform.standalone.js"></script>
+        <script src="assets/plugins/switchery/switchery.min.js"></script>
+        <script src="assets/plugins/d3/d3.min.js"></script>
+        <script src="assets/plugins/nvd3/nv.d3.min.js"></script>
+        <script src="assets/plugins/flot/jquery.flot.min.js"></script>
+        <script src="assets/plugins/flot/jquery.flot.time.min.js"></script>
+        <script src="assets/plugins/flot/jquery.flot.symbol.min.js"></script>
+        <script src="assets/plugins/flot/jquery.flot.resize.min.js"></script>
+        <script src="assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
+        <script src="assets/plugins/flot/jquery.flot.pie.min.js"></script>
+        <script src="assets/plugins/chartjs/chart.min.js"></script>
+        <script src="assets/js/ecaps.min.js"></script>
+        <script src="assets/js/pages/dashboard.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $("#btn_logout").click(function () {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'Dangnhap.aspx/abandonCurrentSession',
+                        data: '{}',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+
+                        beforeSend: function () {
+
+                        },
+                        success: function (response) {
+                            //alert(response.d);
+                        },
+                        failure: function (response) {
+                            alert("fail");
+                        },
+                        complete: function () {
+
+                        },
+                        error: function (xhr, status, error) {
+                            var err = eval("(" + xhr.responseText + ")");
+                            alert(err.Message);
+                        },
+                    });
+                });
+            });
+        </script>
+    </form>
+</body>
+</html>
+

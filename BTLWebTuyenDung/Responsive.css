@@ -1,0 +1,27 @@
+﻿@media (max-width: 1113px) {
+    .btnUngTuyen {
+        font-size: 12px;
+    }
+
+    .detail_info-list {
+        margin-right: 15px;
+    }
+
+    .detail_right-nganhnghe, .detail_right-Khuvuc {
+        margin: 15px 15px 0 0;
+        border-radius: 2px;
+    }
+}
+/*@media (min-width: 740px) and (max-width: 1023px) {
+    .wide {
+        width: 644px;
+    }
+}
+@media (min-width: 1113px){
+    .btnUngTuyen {
+        font-size: 20px;
+    }
+}
+@media (min-width: 1024px) and (max-width: 1239px){
+
+}*/
